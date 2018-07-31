@@ -1,0 +1,22 @@
+
+{
+    "bookingApp": {
+        "amenity" : {
+            "home": {
+                "title": "Amenities",
+                "createLabel": "Створити новий Amenity",
+                "createOrEditLabel": "Створити чи редагувати Amenity"
+            },
+            "created": "Новий Amenity створений з ідентифікатором {{ param }}",
+            "updated": "Amenity оновлений з ідентифікатором {{ param }}",
+            "deleted": "Amenity видалений з ідентифікатором {{ param }}",
+            "delete": {
+                "question": "Ви впевнені, що хочете видалити Amenity {{ id }}?"
+            },
+            "detail": {
+                "title": "Amenity"
+            },
+            "name": "Name"
+        }
+    }
+}

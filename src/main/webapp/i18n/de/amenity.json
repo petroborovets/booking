@@ -1,0 +1,22 @@
+
+{
+    "bookingApp": {
+        "amenity" : {
+            "home": {
+                "title": "Amenities",
+                "createLabel": "Amenity erstellen",
+                "createOrEditLabel": "Amenity erstellen oder bearbeiten"
+            },
+            "created": "Amenity erstellt mit ID {{ param }}",
+            "updated": "Amenity aktualisiert mit ID {{ param }}",
+            "deleted": "Amenity gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Amenity {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Amenity"
+            },
+            "name": "Name"
+        }
+    }
+}
