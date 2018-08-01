@@ -7,10 +7,6 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Сутності",
-                "amenity": "Amenity",
-                "country": "Country",
-                "facility": "Facility",
-                "propertyType": "Property Type",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
