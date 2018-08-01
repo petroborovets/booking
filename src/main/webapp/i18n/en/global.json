@@ -15,6 +15,7 @@
                 "propertyType": "Property Type",
                 "apartmentType": "Apartment Type",
                 "bookingStatus": "Booking Status",
+                "property": "Property",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

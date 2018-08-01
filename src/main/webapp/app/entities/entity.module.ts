@@ -8,6 +8,7 @@ import { BookingFacilityModule } from './facility/facility.module';
 import { BookingPropertyTypeModule } from './property-type/property-type.module';
 import { BookingApartmentTypeModule } from './apartment-type/apartment-type.module';
 import { BookingBookingStatusModule } from './booking-status/booking-status.module';
+import { BookingPropertyModule } from './property/property.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -21,6 +22,7 @@ import { BookingBookingStatusModule } from './booking-status/booking-status.modu
         BookingPropertyTypeModule,
         BookingApartmentTypeModule,
         BookingBookingStatusModule,
+        BookingPropertyModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

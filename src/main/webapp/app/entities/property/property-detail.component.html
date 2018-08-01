@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="property">
+            <h2><span jhiTranslate="bookingApp.property.detail.title">Property</span> {{property.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bookingApp.property.name">Name</span></dt>
+                <dd>
+                    <span>{{property.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="bookingApp.property.description">Description</span></dt>
+                <dd>
+                    <span>{{property.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="bookingApp.property.contactName">Contact Name</span></dt>
+                <dd>
+                    <span>{{property.contactName}}</span>
+                </dd>
+                <dt><span jhiTranslate="bookingApp.property.contactEmail">Contact Email</span></dt>
+                <dd>
+                    <span>{{property.contactEmail}}</span>
+                </dd>
+                <dt><span jhiTranslate="bookingApp.property.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{property.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="bookingApp.property.rating">Rating</span></dt>
+                <dd>
+                    <span>{{property.rating}}</span>
+                </dd>
+                <dt><span jhiTranslate="bookingApp.property.owner">Owner</span></dt>
+                <dd>
+                    {{property.ownerLogin}}
+                </dd>
+                <dt><span jhiTranslate="bookingApp.property.address">Address</span></dt>
+                <dd>
+                    <div *ngIf="property.addressId">
+                        <a [routerLink]="['/address', property.addressId, 'view']">{{property.addressAddressLine1}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="bookingApp.property.propertyType">Property Type</span></dt>
+                <dd>
+                    <div *ngIf="property.propertyTypeId">
+                        <a [routerLink]="['/property-type', property.propertyTypeId, 'view']">{{property.propertyTypeName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/property', property.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

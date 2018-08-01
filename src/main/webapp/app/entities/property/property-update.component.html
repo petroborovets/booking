@@ -1,0 +1,121 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-property-heading" jhiTranslate="bookingApp.property.home.createOrEditLabel">Create or edit a Property</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!property.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="property.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bookingApp.property.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="property.name" required maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bookingApp.property.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="property.description" maxlength="500"/>
+                    <div [hidden]="!(editForm.controls.description?.dirty && editForm.controls.description?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.description?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 500 }">
+                        This field cannot be longer than 500 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bookingApp.property.contactName" for="field_contactName">Contact Name</label>
+                    <input type="text" class="form-control" name="contactName" id="field_contactName"
+                        [(ngModel)]="property.contactName" maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.contactName?.dirty && editForm.controls.contactName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.contactName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bookingApp.property.contactEmail" for="field_contactEmail">Contact Email</label>
+                    <input type="text" class="form-control" name="contactEmail" id="field_contactEmail"
+                        [(ngModel)]="property.contactEmail" maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.contactEmail?.dirty && editForm.controls.contactEmail?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.contactEmail?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bookingApp.property.phoneNumber" for="field_phoneNumber">Phone Number</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                        [(ngModel)]="property.phoneNumber" maxlength="30"/>
+                    <div [hidden]="!(editForm.controls.phoneNumber?.dirty && editForm.controls.phoneNumber?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.phoneNumber?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bookingApp.property.rating" for="field_rating">Rating</label>
+                    <input type="number" class="form-control" name="rating" id="field_rating"
+                        [(ngModel)]="property.rating" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bookingApp.property.owner" for="field_owner">Owner</label>
+                    <select class="form-control" id="field_owner" name="owner" [(ngModel)]="property.ownerId"  required>
+                        <option *ngIf="!editForm.value.owner" [ngValue]="null" selected></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.owner?.dirty && editForm.controls.owner?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.owner?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bookingApp.property.address" for="field_address">Address</label>
+                    <select class="form-control" id="field_address" name="address" [(ngModel)]="property.addressId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="addressOption.id" *ngFor="let addressOption of addresses; trackBy: trackAddressById">{{addressOption.addressLine1}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bookingApp.property.propertyType" for="field_propertyType">Property Type</label>
+                    <select class="form-control" id="field_propertyType" name="propertyType" [(ngModel)]="property.propertyTypeId"  required>
+                        <option *ngIf="!editForm.value.propertyType" [ngValue]="null" selected></option>
+                        <option [ngValue]="propertyTypeOption.id" *ngFor="let propertyTypeOption of propertytypes; trackBy: trackPropertyTypeById">{{propertyTypeOption.name}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.propertyType?.dirty && editForm.controls.propertyType?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.propertyType?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

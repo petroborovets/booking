@@ -1,0 +1,80 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="bookingApp.property.home.title">Properties</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-property" [routerLink]="['/property/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="bookingApp.property.home.createLabel">
+            Create new Property
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="properties">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="name"><span jhiTranslate="bookingApp.property.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="description"><span jhiTranslate="bookingApp.property.description">Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contactName"><span jhiTranslate="bookingApp.property.contactName">Contact Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contactEmail"><span jhiTranslate="bookingApp.property.contactEmail">Contact Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phoneNumber"><span jhiTranslate="bookingApp.property.phoneNumber">Phone Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="rating"><span jhiTranslate="bookingApp.property.rating">Rating</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ownerLogin"><span jhiTranslate="bookingApp.property.owner">Owner</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="addressAddressLine1"><span jhiTranslate="bookingApp.property.address">Address</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="propertyTypeName"><span jhiTranslate="bookingApp.property.propertyType">Property Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let property of properties ;trackBy: trackId">
+                <td><a [routerLink]="['/property', property.id, 'view' ]">{{property.id}}</a></td>
+                <td>{{property.name}}</td>
+                <td>{{property.description}}</td>
+                <td>{{property.contactName}}</td>
+                <td>{{property.contactEmail}}</td>
+                <td>{{property.phoneNumber}}</td>
+                <td>{{property.rating}}</td>
+                <td>
+                    {{property.ownerLogin}}
+                </td>
+                <td>
+                    <div *ngIf="property.addressId">
+                        <a [routerLink]="['../address', property.addressId , 'view' ]" >{{property.addressAddressLine1}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="property.propertyTypeId">
+                        <a [routerLink]="['../property-type', property.propertyTypeId , 'view' ]" >{{property.propertyTypeName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/property', property.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/property', property.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'property/'+ property.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

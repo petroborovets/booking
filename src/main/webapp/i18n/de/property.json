@@ -1,0 +1,30 @@
+
+{
+    "bookingApp": {
+        "property" : {
+            "home": {
+                "title": "Properties",
+                "createLabel": "Property erstellen",
+                "createOrEditLabel": "Property erstellen oder bearbeiten"
+            },
+            "created": "Property erstellt mit ID {{ param }}",
+            "updated": "Property aktualisiert mit ID {{ param }}",
+            "deleted": "Property gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Property {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Property"
+            },
+            "name": "Name",
+            "description": "Description",
+            "contactName": "Contact Name",
+            "contactEmail": "Contact Email",
+            "phoneNumber": "Phone Number",
+            "rating": "Rating",
+            "owner": "Owner",
+            "address": "Address",
+            "propertyType": "Property Type"
+        }
+    }
+}
