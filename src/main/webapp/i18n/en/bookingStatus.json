@@ -1,0 +1,22 @@
+
+{
+    "bookingApp": {
+        "bookingStatus" : {
+            "home": {
+                "title": "Booking Statuses",
+                "createLabel": "Create a new Booking Status",
+                "createOrEditLabel": "Create or edit a Booking Status"
+            },
+            "created": "A new Booking Status is created with identifier {{ param }}",
+            "updated": "A Booking Status is updated with identifier {{ param }}",
+            "deleted": "A Booking Status is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Booking Status {{ id }}?"
+            },
+            "detail": {
+                "title": "Booking Status"
+            },
+            "name": "Name"
+        }
+    }
+}

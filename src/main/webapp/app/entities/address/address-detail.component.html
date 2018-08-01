@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="address">
+            <h2><span jhiTranslate="bookingApp.address.detail.title">Address</span> {{address.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bookingApp.address.addressLine1">Address Line 1</span></dt>
+                <dd>
+                    <span>{{address.addressLine1}}</span>
+                </dd>
+                <dt><span jhiTranslate="bookingApp.address.addressLine2">Address Line 2</span></dt>
+                <dd>
+                    <span>{{address.addressLine2}}</span>
+                </dd>
+                <dt><span jhiTranslate="bookingApp.address.zip">Zip</span></dt>
+                <dd>
+                    <span>{{address.zip}}</span>
+                </dd>
+                <dt><span jhiTranslate="bookingApp.address.city">City</span></dt>
+                <dd>
+                    <div *ngIf="address.cityId">
+                        <a [routerLink]="['/city', address.cityId, 'view']">{{address.cityName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/address', address.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

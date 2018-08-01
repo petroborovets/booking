@@ -9,6 +9,12 @@
                 "main": "Entitäten",
                 "amenity": "Amenity",
                 "country": "Country",
+                "city": "City",
+                "address": "Address",
+                "facility": "Facility",
+                "propertyType": "Property Type",
+                "apartmentType": "Apartment Type",
+                "bookingStatus": "Booking Status",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,22 @@
+
+{
+    "bookingApp": {
+        "facility" : {
+            "home": {
+                "title": "Facilities",
+                "createLabel": "Facility erstellen",
+                "createOrEditLabel": "Facility erstellen oder bearbeiten"
+            },
+            "created": "Facility erstellt mit ID {{ param }}",
+            "updated": "Facility aktualisiert mit ID {{ param }}",
+            "deleted": "Facility gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Facility {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Facility"
+            },
+            "name": "Name"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+
+{
+    "bookingApp": {
+        "facility" : {
+            "home": {
+                "title": "Facilities",
+                "createLabel": "Створити новий Facility",
+                "createOrEditLabel": "Створити чи редагувати Facility"
+            },
+            "created": "Новий Facility створений з ідентифікатором {{ param }}",
+            "updated": "Facility оновлений з ідентифікатором {{ param }}",
+            "deleted": "Facility видалений з ідентифікатором {{ param }}",
+            "delete": {
+                "question": "Ви впевнені, що хочете видалити Facility {{ id }}?"
+            },
+            "detail": {
+                "title": "Facility"
+            },
+            "name": "Name"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+
+{
+    "bookingApp": {
+        "apartmentType" : {
+            "home": {
+                "title": "Apartment Types",
+                "createLabel": "Створити новий Apartment Type",
+                "createOrEditLabel": "Створити чи редагувати Apartment Type"
+            },
+            "created": "Новий Apartment Type створений з ідентифікатором {{ param }}",
+            "updated": "Apartment Type оновлений з ідентифікатором {{ param }}",
+            "deleted": "Apartment Type видалений з ідентифікатором {{ param }}",
+            "delete": {
+                "question": "Ви впевнені, що хочете видалити Apartment Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Apartment Type"
+            },
+            "name": "Name"
+        }
+    }
+}

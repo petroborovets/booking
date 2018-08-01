@@ -1,0 +1,22 @@
+
+{
+    "bookingApp": {
+        "apartmentType" : {
+            "home": {
+                "title": "Apartment Types",
+                "createLabel": "Apartment Type erstellen",
+                "createOrEditLabel": "Apartment Type erstellen oder bearbeiten"
+            },
+            "created": "Apartment Type erstellt mit ID {{ param }}",
+            "updated": "Apartment Type aktualisiert mit ID {{ param }}",
+            "deleted": "Apartment Type gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Apartment Type {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Apartment Type"
+            },
+            "name": "Name"
+        }
+    }
+}
