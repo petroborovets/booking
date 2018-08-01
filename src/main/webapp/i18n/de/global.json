@@ -8,6 +8,7 @@
             "entities": {
                 "main": "Entitäten",
                 "amenity": "Amenity",
+                "country": "Country",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
